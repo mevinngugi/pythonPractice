@@ -16,16 +16,47 @@ alarm_clock(0, False) → '10:00'
 
 def alarm_clock(day, vacation):
 
-	if 1 <= day <= 5 and vacation == False:
-		return "7:00"
+    if vacation == False and 1 <= day <= 5:
+        return "7:00"
 
-	elif vacation == False and day == 0 or day == 6:
-		return "10:001"
+    elif vacation == False and (day == 0 or day == 6):
+        return "10:00"
 
-	elif 1 <= day <= 5 and vacation == True:
-		return "10:002"
+    elif vacation == True and 1 <= day <= 5:
+        return "10:00"
 
-	elif vacation == True and day == 0 or day == 6:
-		return "off"		
+    elif vacation == True and (day == 0 or day == 6):
+        return "off"
 
-print (alarm_clock(6, True))
+
+print(alarm_clock(6, True))
+
+# A better sollution
+
+'''def alarm_clock(day, vacation):
+  if not vacation:
+    if 1 <= day <= 5:
+      return '7:00'
+    return '10:00'
+  
+  if 1 <= day <= 5:
+    return '10:00'
+  return 'off' '''
+
+'''
+near_ten
+
+Given a non-negative number "num", return True if num is within 2 of a multiple of 10.
+Note: (a % b) is the remainder of dividing a by b, so (7 % 5) is 2.
+See also: Introduction to Mod
+
+near_ten(12) → True
+near_ten(17) → False
+near_ten(19) → True
+
+'''
+def near_ten(num):
+	print (num % 10)
+	return (num % 10) <2 or 8 <= (num % 10) <= 10
+
+print (near_ten(17))
