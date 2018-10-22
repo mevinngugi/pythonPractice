@@ -57,9 +57,9 @@ near_ten(19) → True
 
 
 def near_ten(num):
-    return (num % 10) < 2 or 8 <= (num % 10) <= 10
+    return (num % 10) <= 2 or 8 <= (num % 10) <= 10
 
-#print (near_ten(17))
+#print (near_ten(19))
 
 
 # caught_speeding
@@ -129,3 +129,95 @@ def cigar_party(cigars, is_weekend):
     return False
 
 #print (cigar_party(30, True))
+
+
+'''
+love6
+
+The number 6 is a truly great number. Given two int values, a and b,
+return True if either one is 6. Or if their sum or difference is 6.
+Note: the function abs(num) computes the absolute value of a number.
+
+love6(6, 4) → True
+love6(4, 5) → False
+love6(1, 5) → True
+'''
+
+
+def love6(a, b):
+    return (6 == a or 6 == b) or (a + b == 6) or (abs(a - b) == 6)
+
+#print (love6(1, 7))
+
+
+'''
+sorta_sum
+
+Given 2 ints, a and b, return their sum. However, sums in the range 10..19
+inclusive, are forbidden, so in that case just return 20.
+
+sorta_sum(3, 4) → 7
+sorta_sum(9, 4) → 20
+sorta_sum(10, 11) → 21
+'''
+
+
+def sorta_sum(a, b):
+    if a + b in range(10, 20):
+        return 20
+    else:
+        return a + b
+
+#print (sorta_sum(9, 4))
+
+
+'''
+squirrel_play
+
+The squirrels in Palo Alto spend most of the day playing. In particular,
+they play if the temperature is between 60 and 90 (inclusive).
+Unless it is summer, then the upper limit is 100 instead of 90.
+Given an int temperature and a boolean is_summer, return True
+if the squirrels play and False otherwise.
+
+squirrel_play(70, False) → True
+squirrel_play(95, False) → False
+squirrel_play(95, True) → True
+'''
+
+
+def squirrel_play(temp, is_summer):
+    if is_summer:
+        upper_limit = 101
+    else:
+        upper_limit = 91
+
+    return temp in range(60, upper_limit)
+
+
+#print (squirrel_play(70, False))
+
+'''
+date_fashion
+
+You and your date are trying to get a table at a restaurant. The parameter "you"
+is the stylishness of your clothes, in the range 0..10, and "date" is the
+stylishness of your date's clothes. The result getting the table is
+encoded as an int value with 0=no, 1=maybe, 2=yes. If either of
+you is very stylish, 8 or more, then the result is 2 (yes).
+With the exception that if either of you has style of 2 or less,
+then the result is 0 (no). Otherwise the result is 1 (maybe).
+
+date_fashion(5, 10) → 2
+date_fashion(5, 2) → 0
+date_fashion(5, 5) → 1
+'''
+
+def date_fashion(you, date):
+    if you or date in range(8, 11):
+        if you or date in range (0, 3):
+            return 0
+        return 1
+    return 2
+
+print (date_fashion(5, 5))
